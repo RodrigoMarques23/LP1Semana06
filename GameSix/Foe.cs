@@ -11,7 +11,7 @@ namespace GameSix
         /// <param name="name"></param>
         public Foe(string name)
         {
-            this.name = name;
+            SetName(name);
             health = 100;
             shield = 0;
         }
@@ -19,6 +19,18 @@ namespace GameSix
         public string GetName()
         {
             return name;
+        }
+        public float GetHealth()
+        {
+            return health;
+        }
+        public float GetShield()
+        {
+            return shield;
+        }
+        public void SetName(string name)
+        {
+            this.name = name.Trim();
         }
         public void TakeDamage(float damage)
         {
