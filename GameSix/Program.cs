@@ -20,7 +20,7 @@ namespace GameSix
 
             for (int i = 0; i < enemies.Length; i++)
             {
-                Console.WriteLine($" Nome do inimigo {i + 1} : {enemies[i].GetName()}");
+                Console.WriteLine($"Nome do inimigo {i + 1} : {enemies[i].GetName()}");
             }
 
             enemies[0].PickUpPowerUp(PowerUp.PowerUps.Shield, 25);
@@ -30,6 +30,7 @@ namespace GameSix
             Console.WriteLine($"{enemies[0].GetName()} shield = {enemies[0].GetShield()}");
             Console.WriteLine($"{enemies[1].GetName()} health = {enemies[1].GetHealth()}");
             Console.WriteLine($"{enemies[1].GetName()} shield = {enemies[1].GetShield()}");
+            Console.WriteLine($"Power Count: {Foe.GetPowerCount()}");
         }
     }
 }
