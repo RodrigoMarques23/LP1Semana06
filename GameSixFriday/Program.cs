@@ -1,36 +1,36 @@
 ﻿using System;
 
-namespace GameSixFriday
+
+namespace GameSix.GameSixFriday
 {
-    class Program
+    public class Program
     {
-
-        static void Main(string[] args)
+        private static void Main()
         {
-            Console.WriteLine("Nº de inimigos?");
-            int x = Int32.Parse(Console.ReadLine());
-            Foe[] enemies = new Foe[x];
+            GameLevel gl = new GameLevel(15, Difficulty.Hard);
 
-            for (int i = 0; i < x; i++)
-            {
-                Console.WriteLine("Nome de inimigo?");
-                string s = Console.ReadLine();
-                enemies[i] = new Foe(s);
-            }
+            gl.SetFoeInRoom(2, new Foe("Darth Vader"));
+            gl.SetFoeInRoom(5, new Foe("Borg Queen"));
+            gl.SetFoeInRoom(11, new Foe("Thanos"));
+            gl.SetFoeInRoom(12, new Foe("Xenomorph"));
 
-            for (int i = 0; i < enemies.Length; i++)
-            {
-                Console.WriteLine($"Nome do inimigo {i + 1} : {enemies[i].GetName()}");
-            }
+            Console.WriteLine($"Difficulty: {gl.GetDifficulty()}");
 
-            enemies[0].PickUpPowerUp(PowerUp.PowerUps.Shield, 25);
-            enemies[1].TakeDamage(35);
-            
-            Console.WriteLine($"{enemies[0].GetName()} health = {enemies[0].GetHealth()}");
-            Console.WriteLine($"{enemies[0].GetName()} shield = {enemies[0].GetShield()}");
-            Console.WriteLine($"{enemies[1].GetName()} health = {enemies[1].GetHealth()}");
-            Console.WriteLine($"{enemies[1].GetName()} shield = {enemies[1].GetShield()}");
-            Console.WriteLine($"Power Count: {Foe.GetPowerCount()}");
+            Console.WriteLine($"Number of rooms: {gl.GetNumRooms()}");
+
+            Console.WriteLine($"Number of foes: {gl.GetNumFoes()}");
+
+            gl.PrintFoes();
+
+            // Este programa mostra o seguinte no ecrã:
+            //
+            // Difficulty: Hard
+            // Number of rooms: 15
+            // Number of foes: 4
+            // Room 2: Darth Vader
+            // Room 5: Borg Queen
+            // Room 11: Thanos
+            // Room 12: Xenomorph
         }
     }
 }

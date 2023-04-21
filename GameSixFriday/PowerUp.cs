@@ -1,4 +1,4 @@
-namespace GameSix
+namespace GameSix.GameSixFriday
 {
     public class PowerUp
     {
